@@ -1,1 +1,28 @@
 # ViewPagerBottomSheetApp
+A simple way to add a draggable sliding up panel (popularized by Google Music and Google Maps) to your Android application.
+
+# Description
+This little example demonstrates how to hack over a bit the BottomSheet behaviour component to make the component capable of half screen lock and also make it to support more than one child view. You can have for example two fragments with recycler views on a child viewpager inside the component and they will work.
+
+# Requirements
+*   [Android Studio 2020.3.1 Patch 4](https://developer.android.com/studio) and above.
+*   Android minSdkVersion 19.
+*   Java
+
+# Features
+* Half Screen Lockable BottomSheet
+* Supports more than one child views
+
+## Screenshots
+ <table>
+  <tr>
+     <td>Main View</td>
+     <td>Half Screen Lock</td>
+     <td>Full Screen</td>
+  </tr>
+  <tr>
+    <td><img src="" width=250 height=480></td>
+    <td><img src="" width=250 height=480></td>
+    <td><img src="" width=250 height=480></td>
+  </tr>
+ </table>
