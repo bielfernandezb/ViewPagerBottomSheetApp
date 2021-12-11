@@ -21,8 +21,8 @@ This little example demonstrates how to hack over a bit the BottomSheet behaviou
      <td>Full Screen</td>
   </tr>
   <tr>
-    <td><img src="" width=250 height=480></td>
-    <td><img src="" width=250 height=480></td>
-    <td><img src="" width=250 height=480></td>
+    <td><img src="https://raw.githubusercontent.com/bielfernandezb/ViewPagerBottomSheetApp/main/screenshots/Screenshot_1639182027.png" width=250 height=480></td>
+    <td><img src="https://raw.githubusercontent.com/bielfernandezb/ViewPagerBottomSheetApp/main/screenshots/Screenshot_1639182030.png" width=250 height=480></td>
+    <td><img src="https://raw.githubusercontent.com/bielfernandezb/ViewPagerBottomSheetApp/main/screenshots/Screenshot_1639182032.png" width=250 height=480></td>
   </tr>
  </table>
