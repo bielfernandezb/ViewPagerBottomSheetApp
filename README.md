@@ -1,5 +1,5 @@
 # ViewPagerBottomSheetApp
-A simple way to add a draggable sliding up panel (popularized by Google Music and Google Maps) to your Android application.
+A simple way to add a draggable sliding up panel (popularized by Google Music and Google Maps) with extra support for child view components to your Android application.
 
 # Description
 This little example demonstrates how to hack over a bit the BottomSheet behaviour component to make the component capable of half screen lock and also make it to support more than one child view. You can have for example two fragments with recycler views on a child viewpager inside the component and they will work.
