@@ -14,8 +14,6 @@ import java.util.List;
 
 class PagerAdapterMain extends FragmentStatePagerAdapter {
 
-    public static final int FRAGMENT_VISITS = 0;
-    public static final int FRAGMENT_WORK_ORDERS = 1;
     SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
     private List<Fragment> mFragments = new ArrayList<>();
     private Context mContext;
