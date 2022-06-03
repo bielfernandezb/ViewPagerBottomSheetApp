@@ -22,7 +22,8 @@ public class ViewPagerBottomSheetBehavior<V extends View> extends BottomSheetBeh
         super(context, attrs);
     }
 
-    @SuppressWarnings("unchecked")
+    @NonNull
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static <V extends View> ViewPagerBottomSheetBehavior<V> from(V view) {
         ViewGroup.LayoutParams params = view.getLayoutParams();
         if (!(params instanceof CoordinatorLayout.LayoutParams)) {
@@ -37,8 +38,11 @@ public class ViewPagerBottomSheetBehavior<V extends View> extends BottomSheetBeh
     }
 
     void invalidateScrollingChild() {
-        final View scrollingChild = findScrollingChild(viewRef.get());
-        nestedScrollingChildRef = new WeakReference<>(scrollingChild);
+        final View scrollingChild;
+        if (viewRef != null) {
+            scrollingChild = findScrollingChild(viewRef.get());
+            nestedScrollingChildRef = new WeakReference<>(scrollingChild);
+        }
     }
 
     @Override
@@ -49,10 +53,7 @@ public class ViewPagerBottomSheetBehavior<V extends View> extends BottomSheetBeh
         if (view instanceof ViewPager) {
             ViewPager viewPager = (ViewPager) view;
             View currentViewPagerChild = ViewPagerUtils.getCurrentView(viewPager);
-            View scrollingChild = findScrollingChild(currentViewPagerChild);
-            if (scrollingChild != null) {
-                return scrollingChild;
-            }
+            return findScrollingChild(currentViewPagerChild);
         } else if (view instanceof ViewGroup) {
             ViewGroup group = (ViewGroup) view;
             for (int i = 0, count = group.getChildCount(); i < count; i++) {

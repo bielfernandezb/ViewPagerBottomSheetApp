@@ -8,9 +8,9 @@ import androidx.viewpager.widget.ViewPager;
 import java.lang.reflect.Field;
 
 public class ViewPagerUtils {
-    private static String TAG = "ViewPagerUtils";
 
     static View getCurrentView(ViewPager viewPager) {
+        String TAG = "ViewPagerUtils";
         try {
             final int currentItem = viewPager.getCurrentItem();
             for (int i = 0; i < viewPager.getChildCount(); i++) {
@@ -25,11 +25,7 @@ public class ViewPagerUtils {
                     return child;
                 }
             }
-        } catch (NoSuchFieldException e) {
-            Log.e(TAG, e.toString());
-        } catch (IllegalArgumentException e) {
-            Log.e(TAG, e.toString());
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
             Log.e(TAG, e.toString());
         }
         return null;

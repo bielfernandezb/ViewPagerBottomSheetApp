@@ -4,30 +4,33 @@ import android.content.Context;
 import android.util.SparseArray;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.bielfernandezb.viewpagerbottomsheetapp.views.fragments.FragmentAux;
+import com.bielfernandezb.viewpagerbottomsheetapp.views.fragments.FragmentMain;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class PagerAdapterMain extends FragmentStatePagerAdapter {
 
-    SparseArray<Fragment> registeredFragments = new SparseArray<Fragment>();
-    private List<Fragment> mFragments = new ArrayList<>();
-    private Context mContext;
+    SparseArray<Fragment> registeredFragments = new SparseArray<>();
+    private final List<Fragment> mFragments = new ArrayList<>();
     private int currentPage = 0;
 
     public PagerAdapterMain(Context context, FragmentManager fragmentManager) {
         super(fragmentManager);
-        mContext = context;
 
         // setup fragments
         mFragments.add(FragmentMain.newInstance());
         mFragments.add(FragmentAux.newInstance());
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         return mFragments.get(position);
@@ -45,15 +48,16 @@ class PagerAdapterMain extends FragmentStatePagerAdapter {
         return mFragments.size();
     }
 
+    @NonNull
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         Fragment fragment = (Fragment) super.instantiateItem(container, position);
         registeredFragments.put(position, fragment);
         return fragment;
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
+    public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         registeredFragments.remove(position);
         super.destroyItem(container, position, object);
     }

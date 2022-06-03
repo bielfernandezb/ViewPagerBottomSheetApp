@@ -5,8 +5,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+@SuppressWarnings("deprecation")
 public class LockableBottomSheetBehavior<V extends View> extends BottomSheetBehavior<V> {
 
     private boolean mLocked = false;
@@ -23,7 +25,7 @@ public class LockableBottomSheetBehavior<V extends View> extends BottomSheetBeha
     }
 
     @Override
-    public boolean onInterceptTouchEvent(CoordinatorLayout parent, V child, MotionEvent event) {
+    public boolean onInterceptTouchEvent(@NonNull CoordinatorLayout parent, @NonNull V child, @NonNull MotionEvent event) {
         boolean handled = false;
 
         if (!mLocked) {
@@ -34,7 +36,7 @@ public class LockableBottomSheetBehavior<V extends View> extends BottomSheetBeha
     }
 
     @Override
-    public boolean onTouchEvent(CoordinatorLayout parent, V child, MotionEvent event) {
+    public boolean onTouchEvent(@NonNull CoordinatorLayout parent, @NonNull V child, @NonNull MotionEvent event) {
         boolean handled = false;
 
         if (!mLocked) {
@@ -45,7 +47,7 @@ public class LockableBottomSheetBehavior<V extends View> extends BottomSheetBeha
     }
 
     @Override
-    public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, V child, View directTargetChild, View target, int nestedScrollAxes) {
+    public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V child, @NonNull View directTargetChild, @NonNull View target, int nestedScrollAxes) {
         boolean handled = false;
 
         if (!mLocked) {
@@ -56,21 +58,21 @@ public class LockableBottomSheetBehavior<V extends View> extends BottomSheetBeha
     }
 
     @Override
-    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, V child, View target, int dx, int dy, int[] consumed) {
+    public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V child, @NonNull View target, int dx, int dy, @NonNull int[] consumed) {
         if (!mLocked) {
             super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
         }
     }
 
     @Override
-    public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, V child, View target) {
+    public void onStopNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V child, @NonNull View target) {
         if (!mLocked) {
             super.onStopNestedScroll(coordinatorLayout, child, target);
         }
     }
 
     @Override
-    public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, V child, View target, float velocityX, float velocityY) {
+    public boolean onNestedPreFling(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V child, @NonNull View target, float velocityX, float velocityY) {
         boolean handled = false;
 
         if (!mLocked) {
